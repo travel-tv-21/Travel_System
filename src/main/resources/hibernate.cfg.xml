@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/travel_agency</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+        <mapping class="model.Entities.ActionEntity"/>
+        <mapping class="model.Entities.CatalogEntity"/>
+        <mapping class="model.Entities.FoodTypeEntity"/>
+        <mapping class="model.Entities.HotelEntity"/>
+        <mapping class="model.Entities.HotelRoomTypeEntity"/>
+        <mapping class="model.Entities.MarshrutEntity"/>
+        <mapping class="model.Entities.NumPeopleEntity"/>
+        <mapping class="model.Entities.OrderEntity"/>
+        <mapping class="model.Entities.OrderTourEntity"/>
+        <mapping class="model.Entities.PhotoEntity"/>
+        <mapping class="model.Entities.RestTypeEntity"/>
+        <mapping class="model.Entities.ReviewEntity"/>
+        <mapping class="model.Entities.RoomTypeEntity"/>
+        <mapping class="model.Entities.ServiceTypeEntity"/>
+        <mapping class="model.Entities.SpecialTourEntity"/>
+        <mapping class="model.Entities.TourEntity"/>
+        <mapping class="model.Entities.TourMarshrutEntity"/>
+        <mapping class="model.Entities.TourOperatorEntity"/>
+        <mapping class="model.Entities.TourTourOperatorEntity"/>
+        <mapping class="model.Entities.UserEntity"/>
+        <mapping class="model.Entities.UserInfoEntity"/>
+        <mapping class="model.Entities.UserTypeEntity"/>
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>
