@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="war" build-on-make="true" name="Travel_System:war">
     <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="Travel_System.war">
+    <root id="archive" name="Travel_System-1.0-SNAPSHOT.war">
       <element id="artifact" artifact-name="Travel_System:war exploded" />
     </root>
   </artifact>
