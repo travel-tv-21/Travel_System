@@ -51,6 +51,7 @@ import org.hibernate.SessionFactory;
     }
 
     @Override
+
     public void delete(final T object) {
         Session session = sessionFactory.openSession();
         try {
