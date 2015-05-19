@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.SessionFactory;
 /**
@@ -14,10 +15,14 @@ import org.hibernate.SessionFactory;
     public class GenericDaoImplement<T> implements GenericDao<T> {
     private SessionFactory sessionFactory;
 
+
+
     @Autowired
     public GenericDaoImplement(SessionFactory sessionFactory){
         this.sessionFactory = sessionFactory;
+
     }
+
 
     @Override
     public void create(final T object) {
@@ -33,22 +38,55 @@ import org.hibernate.SessionFactory;
     }
 
     @Override
-    public void update(T object) {
-
+    public void update(final T object) {
+        Session session = sessionFactory.openSession();
+        try {
+            session.beginTransaction();
+            session.update(object);
+            session.getTransaction().commit();
+        } finally {
+            if (session != null && session.isOpen())
+                session.close();
+        }
     }
 
     @Override
-    public void delete(T object) {
-
+    public void delete(final T object) {
+        Session session = sessionFactory.openSession();
+        try {
+            session.beginTransaction();
+            session.delete(object);
+            session.getTransaction().commit();
+        } finally {
+            if (session != null && session.isOpen())
+                session.close();
+        }
     }
 
     @Override
-    public T findById(int id) {
-        return null;
+    public T findById(final Class<T> type,int id) {
+        Session session = sessionFactory.openSession();
+        T res = null;
+        try {
+            res = ((T) session.get(type, id));
+        } finally {
+            if (session != null && session.isOpen())
+                session.close();
+        }
+        return res;
     }
 
     @Override
-    public List<T> findAll() {
-        return null;
+    public List<T> findAll(final Class<T> type) {
+        Session session = sessionFactory.openSession();
+        List<T> some = new ArrayList<T>();
+        try {
+            some = (List<T>) session.createCriteria(type).list();
+        } finally {
+            if (session != null && session.isOpen())
+                session.close();
+        }
+        return some;
+
     }
 }

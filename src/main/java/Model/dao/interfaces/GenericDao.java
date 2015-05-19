@@ -9,6 +9,6 @@ public interface GenericDao <T> {
   void create ( final T object);
   void update (T object);
   void delete (T object);
-  T findById(int id);
-  List<T> findAll();
+  T findById(final Class<T> type,int id);
+  List<T> findAll(final Class<T> type);
 }
