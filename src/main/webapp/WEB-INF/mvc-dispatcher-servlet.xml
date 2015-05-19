@@ -7,10 +7,10 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <context:component-scan base-package="controller"/>
-     <context:component-scan base-package="Model.Entities"/>
+    <context:component-scan base-package="Model.Entities"/>
 
 <mvc:annotation-driven/>
-<mvc:resources mapping="/resourcces/**" location="/resources/"/>
+
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
       <property name="driverClassName" value="com.mysql.jdbc.Driver" />

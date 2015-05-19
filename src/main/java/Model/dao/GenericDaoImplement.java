@@ -2,13 +2,11 @@ package Model.dao;
 
 import Model.dao.interfaces.GenericDao;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.List;
-import org.hibernate.SessionFactory;
 /**
  * Created by Администратор on 02.05.2015.
  */
@@ -56,6 +54,7 @@ import org.hibernate.SessionFactory;
         Session session = sessionFactory.openSession();
         try {
             session.beginTransaction();
+
             session.delete(object);
             session.getTransaction().commit();
         } finally {
