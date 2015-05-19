@@ -12,6 +12,14 @@ public class UserTypeEntity {
     private String name;
     private Byte deleted;
 
+    public UserTypeEntity() {
+    }
+
+    public UserTypeEntity( String name, Byte deleted) {
+        this.name = name;
+        this.deleted = deleted;
+    }
+
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
     public int getId() {
