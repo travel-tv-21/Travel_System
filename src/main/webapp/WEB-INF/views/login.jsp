@@ -14,8 +14,9 @@
     Password:<br/>
     <input type="password" name ="password" value="">
     <br/>
-    <input type ="submit" value="Enter">
+    <input type ="submit" value="Sign In"/>
 </form>
+<a href="signup.html"><button>Sign Up</button></a>
 <hr/>
 </body>
 </html>

@@ -29,6 +29,7 @@ import java.util.List;
             session.beginTransaction();
             session.save(object);
             session.getTransaction().commit();
+            session.flush();
         }finally {
             if (session != null && session.isOpen())
                 session.close();
@@ -42,6 +43,7 @@ import java.util.List;
             session.beginTransaction();
             session.update(object);
             session.getTransaction().commit();
+            session.flush();
         } finally {
             if (session != null && session.isOpen())
                 session.close();

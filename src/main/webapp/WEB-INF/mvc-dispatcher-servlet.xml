@@ -35,9 +35,9 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <bean id="genericDao" class="Model.dao.GenericDaoImplement">
-
-            </bean>
+    <bean id="genericDao" class="Model.dao.GenericDaoImplement"> </bean>
+    <bean id="signupValidator" class="businesslogic.SignupValidator"> </bean>
+    <bean id="signUp" class="businesslogic.SignUp"> </bean>
 
 
 

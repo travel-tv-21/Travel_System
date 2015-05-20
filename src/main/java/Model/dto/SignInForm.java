@@ -3,14 +3,14 @@ package Model.dto;
 /**
  * Created by yarik on 20.05.2015.
  */
-public class User {
+public class SignInForm {
     private String login;
     private String password;
 
-    public User() {
+    public SignInForm() {
     }
 
-    public User(String login, String password) {
+    public SignInForm(String login, String password) {
         this.login = login;
         this.password = password;
     }
