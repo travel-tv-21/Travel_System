@@ -11,6 +11,6 @@
     <title>User main page</title>
 </head>
 <body>
-Вы зашли как ${login} <a href="logout.html">Выйти</a>
+You signed in as ${login} <a href="logout.html">Log Out</a>
 </body>
 </html>

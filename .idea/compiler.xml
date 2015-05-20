@@ -27,7 +27,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Travel_System" target="1.8" />
+      <module name="Travel_System" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,6 +1,5 @@
 package controller;
 
-import Model.Entities.UserEntity;
 import Model.dto.SignUpForm;
 import businesslogic.SignUp;
 import businesslogic.SignupValidator;
@@ -11,6 +10,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * Created by yarik on 20.05.2015.
@@ -32,7 +34,9 @@ public class SignUpController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String processSignup(@ModelAttribute("signupForm") SignUpForm signupForm, BindingResult result) {
+    public String processSignup(@ModelAttribute("signupForm") SignUpForm signupForm,  BindingResult result,
+                                ModelMap model,
+                                HttpServletResponse response) {
         signupValidator.validate(signupForm, result);
 
 
@@ -41,8 +45,16 @@ public class SignUpController {
         }
 
         signUp.addUser(signupForm);
-        UserEntity user = new UserEntity();
-        //user.setLogin();
-        return "signup-success";
+        Cookie logCookie = new Cookie("LOGIN", signupForm.getLogin());
+        Cookie pasCookie = new Cookie("PASSWORD", signupForm.getPassword());
+        model.addAttribute("login", signupForm.getLogin());
+        logCookie.setMaxAge(3600);
+        pasCookie.setMaxAge(3600);
+        response.addCookie(logCookie);
+        response.addCookie(pasCookie);
+
+
+
+        return "login";
     }
 }

@@ -48,7 +48,7 @@ public class SignInController {
 	}
 
     @RequestMapping(value = "/doLogin", method = RequestMethod.POST)
-    public String login(@ModelAttribute("LoginForm") SignInForm signInForm, ModelMap model, HttpServletResponse response) {
+    public String login(@ModelAttribute("singnInForm") SignInForm signInForm, ModelMap model, HttpServletResponse response) {
         String page = "userMainPage";
         Authorization authorization = new Authorization(genericDao);
         UserTypeEntity userType = authorization.check(signInForm);
