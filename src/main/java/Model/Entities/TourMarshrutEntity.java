@@ -1,10 +1,7 @@
 package Model.Entities;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 /**
  * Created by Администратор on 01.05.2015.
  */
@@ -12,6 +9,7 @@ import javax.persistence.Id;
 @Table(name = "tour_marshrut", schema = "", catalog = "travel_agency")
 public class TourMarshrutEntity {
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer Id;
     private int tourId;
     private int marshrutId;
