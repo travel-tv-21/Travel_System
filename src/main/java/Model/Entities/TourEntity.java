@@ -21,6 +21,8 @@ public class TourEntity {
     private double rating;
     private int photoId;
     private Byte deleted;
+    private String name;
+    private double price;
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -141,6 +143,26 @@ public class TourEntity {
 
     public void setDeleted(Byte deleted) {
         this.deleted = deleted;
+    }
+
+    @Basic
+    @Column(name = "name", nullable = true, insertable = true, updatable = true)
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Basic
+    @Column(name = "price", nullable = true, insertable = true, updatable = true)
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     @Override

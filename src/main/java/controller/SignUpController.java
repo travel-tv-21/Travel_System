@@ -29,7 +29,6 @@ public class SignUpController {
     public String signup(ModelMap model) {
         SignUpForm signupForm = new SignUpForm();
         model.put("signupForm", signupForm);
-        System.out.println("form created");
         return "signup";
     }
 
@@ -52,8 +51,6 @@ public class SignUpController {
         pasCookie.setMaxAge(3600);
         response.addCookie(logCookie);
         response.addCookie(pasCookie);
-
-
 
         return "login";
     }
