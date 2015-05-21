@@ -1,7 +1,7 @@
 package Model.Entities;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * Created by Администратор on 01.05.2015.
@@ -15,14 +15,29 @@ public class TourEntity {
     private String description;
     private int hotelId;
     private Date startDate;
-    private Byte insurance;
-    private Byte hot;
+    private boolean insurance;
+    private boolean hot;
     private Integer restTypeId;
     private double rating;
     private int photoId;
     private Byte deleted;
+    private double price;
+    private String name;
+
+    public TourEntity() {
+    }
+
+    public TourEntity(String description, int numday, boolean insurance, boolean hot, double price, String name) {
+        this.description = description;
+        this.numday = numday;
+        this.insurance = insurance;
+        this.hot = hot;
+        this.price = price;
+        this.name = name;
+    }
 
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
     public int getId() {
         return id;
@@ -33,7 +48,7 @@ public class TourEntity {
     }
 
     @Basic
-    @Column(name = "numday", nullable = false, insertable = true, updatable = true)
+    @Column(name = "numday",  insertable = true, updatable = true)
     public int getNumday() {
         return numday;
     }
@@ -43,7 +58,7 @@ public class TourEntity {
     }
 
     @Basic
-    @Column(name = "numPeopleId", nullable = false, insertable = true, updatable = true)
+    @Column(name = "numPeopleId",  insertable = true, updatable = true)
     public int getNumPeopleId() {
         return numPeopleId;
     }
@@ -63,7 +78,7 @@ public class TourEntity {
     }
 
     @Basic
-    @Column(name = "hotelId", nullable = false, insertable = true, updatable = true)
+    @Column(name = "hotelId", insertable = true, updatable = true)
     public int getHotelId() {
         return hotelId;
     }
@@ -73,7 +88,7 @@ public class TourEntity {
     }
 
     @Basic
-    @Column(name = "startDate", nullable = false, insertable = true, updatable = true)
+    @Column(name = "startDate", insertable = true, updatable = true)
     public Date getStartDate() {
         return startDate;
     }
@@ -84,21 +99,21 @@ public class TourEntity {
 
     @Basic
     @Column(name = "insurance", nullable = true, insertable = true, updatable = true)
-    public Byte getInsurance() {
+    public boolean getInsurance() {
         return insurance;
     }
 
-    public void setInsurance(Byte insurance) {
+    public void setInsurance(boolean insurance) {
         this.insurance = insurance;
     }
 
     @Basic
     @Column(name = "hot", nullable = true, insertable = true, updatable = true)
-    public Byte getHot() {
+    public boolean getHot() {
         return hot;
     }
 
-    public void setHot(Byte hot) {
+    public void setHot(boolean hot) {
         this.hot = hot;
     }
 
@@ -113,7 +128,7 @@ public class TourEntity {
     }
 
     @Basic
-    @Column(name = "Rating", nullable = false, insertable = true, updatable = true, precision = 0)
+    @Column(name = "Rating", insertable = true, updatable = true, precision = 0)
     public double getRating() {
         return rating;
     }
@@ -142,6 +157,26 @@ public class TourEntity {
         this.deleted = deleted;
     }
 
+    @Basic
+    @Column(name = "price")
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    @Basic
+    @Column(name = "name")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -157,8 +192,7 @@ public class TourEntity {
         if (Double.compare(that.rating, rating) != 0) return false;
         if (deleted != null ? !deleted.equals(that.deleted) : that.deleted != null) return false;
         if (description != null ? !description.equals(that.description) : that.description != null) return false;
-        if (hot != null ? !hot.equals(that.hot) : that.hot != null) return false;
-        if (insurance != null ? !insurance.equals(that.insurance) : that.insurance != null) return false;
+
         if (restTypeId != null ? !restTypeId.equals(that.restTypeId) : that.restTypeId != null) return false;
         if (startDate != null ? !startDate.equals(that.startDate) : that.startDate != null) return false;
 
@@ -175,8 +209,6 @@ public class TourEntity {
         result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + hotelId;
         result = 31 * result + (startDate != null ? startDate.hashCode() : 0);
-        result = 31 * result + (insurance != null ? insurance.hashCode() : 0);
-        result = 31 * result + (hot != null ? hot.hashCode() : 0);
         result = 31 * result + (restTypeId != null ? restTypeId.hashCode() : 0);
         temp = Double.doubleToLongBits(rating);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
