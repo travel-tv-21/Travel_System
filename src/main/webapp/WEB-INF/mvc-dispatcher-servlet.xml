@@ -7,6 +7,7 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <context:component-scan base-package="controller"/>
+    <context:component-scan base-package="Model.dto"/>
     <context:component-scan base-package="Model.Entities"/>
 
 <mvc:annotation-driven/>
@@ -21,6 +22,7 @@
   <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
       <property name="dataSource" ref="dataSource"/>
       <property name="packagesToScan" value = "Model.Entities"/>
+
        <property name="hibernateProperties">
            <props>
                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
@@ -38,7 +40,7 @@
     <bean id="genericDao" class="Model.dao.GenericDaoImplement"> </bean>
     <bean id="signupValidator" class="businesslogic.SignupValidator"> </bean>
     <bean id="signUp" class="businesslogic.SignUp"> </bean>
-
+    <bean id="toursForListFiller" class="businesslogic.ToursForListFiller"> </bean>
 
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 

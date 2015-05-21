@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Table(name = "tour_tour_operator", schema = "", catalog = "travel_agency")
 public class TourTourOperatorEntity {
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer Id;
     private int tourOperatorId;
     private int tourId;

@@ -1,7 +1,7 @@
 package Model.Entities;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Created by Администратор on 01.05.2015.
@@ -23,6 +23,7 @@ public class TourEntity {
     private Byte deleted;
     private double price;
     private String name;
+    
 
     public TourEntity() {
     }

@@ -1,0 +1,241 @@
+@media screen and (min-width: 992px) {
+	* {
+		font-size: 12px;
+	}
+	
+	.logo a {
+		font-size: 26px;
+	}
+	
+	input[type='text'] {
+		width: 80%;
+		height: 26px;
+	}
+	
+	input[type='button'] {
+		font-size: 14px;
+		width: 20%;
+		height: 26px;
+	}
+	.center-header {
+		height: 115px;
+		margin-top: 10px;
+	}
+	
+	.shopping-cart-name {
+		margin-top: 30px;
+		text-align: center;
+	}
+
+	.shopping-cart-name img {
+		margin : 0 auto;
+	}
+	
+	.cart-name {
+		font-size: 20px;
+	}
+	
+	.shopping-cart-content {
+		font-size: 18px;
+		margin-left: -20px;
+		line-height: 35px;
+		height: 100%;
+	}
+	
+	ul.menu {
+		height: 45px;
+		margin-top: 15px;
+	}
+	.menu li {
+		width: 24.80%;
+	}
+
+	ul.menu li a, ul.menu li a:visited {
+		font-size: 17px;
+	}
+	
+	.advantages {
+		height: 70px;
+	}
+	.advantages .advantages-text{
+		font-size: 14px;
+	}
+	
+	.actions {
+		min-height:270px;
+	}
+	
+	.goods .good {
+		margin: 15px 15px 10px 0px;
+	}
+
+	.footer h2 {
+		color: #9499B3;
+		font-size: 16px;
+	}
+
+	.footer a {
+		font-size: 13px;
+	}
+
+	hr {
+		background-color: #000000;
+		height: 1.5px;
+		border: none;
+	}
+
+
+}
+
+@media screen and (max-width: 700px) {
+	* {
+		font-size: 8px;
+	}
+	.actions {
+		min-height:150px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.registration, .region {
+		width: 100%;
+	}
+	.actions {
+		min-height:150px;
+	}
+	
+}
+
+@media screen and (max-width: 800px) {
+	.free-calls {
+		font-size: 12px;
+	}
+	.actions {
+		min-height:200px;
+	}
+	
+}
+
+@media screen and (max-width: 500px) {
+	
+	.upper-info {
+		line-height: 40px;
+	}
+	
+	.upper-info .upper-link {
+		width: 50%;
+	}
+	
+	.registration-container {
+		width: 100%;
+		height: 30px;
+	}
+	
+	.registration {
+		text-align: right-side;
+	}
+	
+	.logo {
+		display: none;
+	}
+	
+	
+	.phone-search {
+		width: 100%;
+		height: 70px;
+	}
+	
+	.phone-number {
+		font-size: 14px;
+	}
+	
+	.free-calls {
+		font-size: 12px;
+	}
+	
+	input[type='text'] {
+		width: 70%;
+		height: 20px;
+	}
+	
+	input[type='button'] {
+		font-size: 10px;
+		width: 30%;
+		height: 22px;
+	}
+	
+	.shopping-cart {
+		height: 70px;
+		width: 100%;
+		margin-top: 10px;
+	}
+	
+	.shopping-cart-name {
+		margin-left: -15px;
+		margin-top: 10px;
+		text-align: center;
+	}
+
+	.shopping-cart-name img {
+		margin : 0 auto;
+	}
+	
+	.cart-name {
+		font-size: 12px;
+	}
+	
+	.shopping-cart-content {
+		font-size: 8px;
+		margin-left: -20px;
+		line-height: 20px;
+		height: 100%;
+	}
+	
+	ul.menu {
+		min-height: 40px;
+		margin-top: 15px;
+		
+	}
+	.menu li {
+		width: 98.5%;
+	}
+
+	ul.menu li a, ul.menu li a:visited {
+		line-height: 20px;
+		font-size: 8px;
+		width: 100%;
+	}
+	
+	.advantages {
+		height: 70px;
+	}
+	.advantages .advantages-text{
+		font-size: 14px;
+	}
+	
+	.actions {
+		min-height:130px;
+	}
+	
+	.goods .good {
+		margin: 10px 10px 10px 0px;
+	}
+
+	.footer h2 {
+		margin-top: 5px;
+		font-size: 6px;
+	}
+
+	.footer a {
+		font-size: 6px;
+	}
+
+	hr {
+		background-color: #000000;
+		height: 1px;
+		border: none;
+	}
+
+
+}
+

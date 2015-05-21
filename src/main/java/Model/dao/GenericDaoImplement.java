@@ -56,7 +56,6 @@ import java.util.List;
         Session session = sessionFactory.openSession();
         try {
             session.beginTransaction();
-
             session.delete(object);
             session.getTransaction().commit();
         } finally {

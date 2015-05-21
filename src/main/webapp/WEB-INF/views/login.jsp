@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP Page</title>
+    <title>Login</title>
 </head>
 <body>
 <h3>Login</h3>

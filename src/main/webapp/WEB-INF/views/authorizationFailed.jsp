@@ -11,7 +11,7 @@
     <title></title>
 </head>
 <body>
-    <h1>Неверные имя пользователя или пароль</h1>
-    <a href="index.html">Попробовать еще раз</a>
+    <h1>Incorrect surname or password</h1>
+    <a href="index.html">Try again</a>
 </body>
 </html>
