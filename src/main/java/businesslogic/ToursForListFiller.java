@@ -23,7 +23,7 @@ public class ToursForListFiller {
             t.setName(tour.getName());
             t.setDescription(tour.getDescription());
             t.setCountOfDays(tour.getNumday());
-            t.setHot((tour.getHot() == 1) ? true : false);
+            t.setHot(tour.getHot());
             t.setStartDate(tour.getStartDate());
             t.setPrice(tour.getPrice());
             PhotoEntity photo = (PhotoEntity)genericDao.findById(PhotoEntity.class, tour.getPhotoId());

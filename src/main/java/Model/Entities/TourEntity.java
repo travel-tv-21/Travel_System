@@ -1,7 +1,7 @@
 package Model.Entities;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * Created by Администратор on 01.05.2015.

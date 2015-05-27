@@ -10,11 +10,9 @@ import businesslogic.ToursForListFiller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +29,7 @@ public class ShoppingCartController {
 
     @RequestMapping(value="/shoppingCart", method = RequestMethod.GET)
     public String showShoppingCart(@CookieValue(value="USER_ID") String userIdStr,
-                            ModelMap model) {
+                            ModelMap model, HttpSession httpSession) {
        int userId = Integer.valueOf(userIdStr);
        List <TourEntity> userTours = new ArrayList<TourEntity>();
        List <ToursInShoppingCartEntity> allToursFromCarts = genericDao.findAll(ToursInShoppingCartEntity.class);
@@ -42,13 +40,16 @@ public class ShoppingCartController {
         }
         List<TourForList> toursForList = new ArrayList<TourForList>();
         filler.fillList(userTours, toursForList);
+        httpSession.setAttribute("toursForList", toursForList);
         model.addAttribute("toursForList", toursForList);
         return "shoppingCart";
     }
 
+
     @RequestMapping(value="/removeFromCart", method = RequestMethod.POST)
     public String removeFromCart(@ModelAttribute("tourId") int tourId,
                             @CookieValue(value="USER_ID") String userIdStr,
+                            HttpSession httpSession,
                             ModelMap model) {
 
         int userId = Integer.valueOf(userIdStr);
@@ -58,20 +59,22 @@ public class ShoppingCartController {
             if ((cur.getUserId() == userId) && (cur.getTourId() == tourId)) {
                 toursInShoppingCartEntities.remove(cur);
                 genericDao.delete(cur);
-                System.out.println("deleted");
                 break;
             }
         }
-        List<TourEntity> dbTours = genericDao.findAll(TourEntity.class);//new ArrayList<TourEntity>();
-        //for (ToursInShoppingCartEntity cur : toursInShoppingCartEntities) {
-         //   dbTours.add((TourEntity) genericDao.findById(TourEntity.class, cur.getTourId()));
-        //}
 
-        List<TourForList> toursForList = new ArrayList<TourForList>();
-        filler.fillList(dbTours, toursForList);
+        List<TourForList> toursForList = (List<TourForList>)httpSession.getAttribute("toursForList");
+
+        for (TourForList t : toursForList) {
+            if (t.getId() == tourId) {
+                toursForList.remove(t);
+                break;
+            }
+        }
+
         model.addAttribute("toursForList", toursForList);
 
-        return "userMainPage";
+        return "shoppingCart";
     }
 
     @RequestMapping(value="/confirmOrder", method = RequestMethod.POST)
