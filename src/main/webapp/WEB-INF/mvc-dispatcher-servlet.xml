@@ -42,6 +42,8 @@
     <bean id="signUp" class="businesslogic.SignUp"> </bean>
     <bean id="toursForListFiller" class="businesslogic.ToursForListFiller"> </bean>
 
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
 
 
 
