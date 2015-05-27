@@ -8,15 +8,13 @@ import javax.persistence.*;
 @Entity
 @Table(name = "order_tour", schema = "", catalog = "travel_agency")
 public class OrderTourEntity {
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
     private int orderId;
     private int tourId;
     private Byte deleted;
 
     @Basic
-    @Column(name = "orderId", nullable = false, insertable = true, updatable = true)
+    @Column(name = "orderId", insertable = true, updatable = true)
     public int getOrderId() {
         return orderId;
     }
@@ -26,7 +24,7 @@ public class OrderTourEntity {
     }
 
     @Basic
-    @Column(name = "tourId", nullable = false, insertable = true, updatable = true)
+    @Column(name = "tourId", insertable = true, updatable = true)
     public int getTourId() {
         return tourId;
     }
@@ -36,7 +34,7 @@ public class OrderTourEntity {
     }
 
     @Basic
-    @Column(name = "deleted", nullable = true, insertable = true, updatable = true)
+    @Column(name = "deleted", insertable = true, updatable = true)
     public Byte getDeleted() {
         return deleted;
     }
@@ -62,13 +60,15 @@ public class OrderTourEntity {
 
     @Override
     public int hashCode() {
-        int result = id.hashCode();
+        int result = id;
         result = 31 * result + orderId;
         result = 31 * result + tourId;
         result = 31 * result + deleted.hashCode();
         return result;
     }
 
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
@@ -76,4 +76,6 @@ public class OrderTourEntity {
     public void setId(Integer id) {
         this.id = id;
     }
+
+
 }

@@ -13,6 +13,7 @@ public class OrderEntity {
     private String status;
     private Byte deleted;
 
+
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, insertable = true, updatable = true)

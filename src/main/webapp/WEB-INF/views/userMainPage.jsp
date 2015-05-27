@@ -1,6 +1,6 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 	<meta charset='UTF-8'>
 	<head>
@@ -35,7 +35,23 @@
 					</div>
 			</div>
 
-			<div>
+            <form class='col-xs-12 col-sm-3' method="POST" action="filter.html">
+                <h2>Filter</h2>
+                Minimal price:
+                <input name="minPrice" type="number" value="${minPrice}"/><br/>
+                Maximal price:
+                <input name="maxPrice" type="number" value="${maxPrice}"/>
+                <br/>
+                Start date: from
+                <input name="startDateFrom" type="date" value="${startDateFrom}"/> to
+                <input name="startDateTo" type="date" value="${startDateTo}"/>
+                <br/>
+                Min days count: <input name="minDaysCount" type="number" value="${minDaysCount}">
+                Max days count: <input name="maxDaysCount" type="number" value="${maxDaysCount}">
+                <input type="submit" value="FILTER"/>
+            </form>
+
+            <div>
 				<h1 class='head1'>Tours</h1>
                         <c:forEach var="tour" items="${toursForList}">
                         <div class="col-xs-4 good">

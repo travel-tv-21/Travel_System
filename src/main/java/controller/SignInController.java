@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -59,6 +60,13 @@ public class SignInController {
                 List<TourEntity> dbTours = genericDao.findAll(TourEntity.class);
                 filler.fillList(dbTours, toursForList);
                 model.addAttribute("toursForList", toursForList);
+
+                model.addAttribute("minPrice", 0);
+                model.addAttribute("maxPrice", 0);
+                model.addAttribute("startDateFrom", new Date());
+                model.addAttribute("startDateTo", new Date());
+                model.addAttribute("minDaysCount", 0);
+                model.addAttribute("maxDaysCount", 0);
             }
         }
 
