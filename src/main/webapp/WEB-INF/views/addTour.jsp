@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="/resources/styles/semantic.css">
 </head>
 <body>
-
+You logged in as ${login} <a href="logout.html">Logout</a>
 <form:form class="ui form segment" modelAttribute="tour" enctype="multipart/form-data"  method="post" action="addTour.html">
     <div class="ui message">
         <div class="header">Add Tour</div>

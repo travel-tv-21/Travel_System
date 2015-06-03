@@ -33,12 +33,6 @@ public class UserMainPageController  {
                               @ModelAttribute("minDaysCount") int minDaysCount,
                               @ModelAttribute("maxDaysCount") int maxDaysCount,
                               ModelMap model) throws ParseException {
-        System.out.println(minPrice);
-        System.out.println(maxPrice);
-        System.out.println(startDateFrom);
-        System.out.println(startDateTo);
-        System.out.println(minDaysCount);
-        System.out.println(maxDaysCount);
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
         List<TourForList> toursForList = new ArrayList<TourForList>();

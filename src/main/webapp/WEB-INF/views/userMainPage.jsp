@@ -21,8 +21,8 @@
 						<a href="index.html">TravelAgency</a>
 					</div>
 					<div class="col-xs-5 col-md-6 phone-search">
-						<form class="search-form">
-							<input type="text"><input type="button" value="ИСКАТЬ">
+						<form class="search-form" method="post" action="/search.html">
+							<input type="text" name="query"><input type="submit" value="SEARCH">
 						</form>
 					</div>
 					<div class="col-xs-4 col-md-4 shopping-cart">
@@ -43,7 +43,7 @@
                 <input name="maxPrice" type="number" value="${maxPrice}"/>
                 <br/>
                 Start date: from
-                <input name="startDateFrom" type="date" value="${startDateFrom}"/> to
+                <input name="startDateFrom" type="date" value="${startDateFrom}"/> <br/>to
                 <input name="startDateTo" type="date" value="${startDateTo}"/>
                 <br/>
                 Min days count: <input name="minDaysCount" type="number" value="${minDaysCount}">

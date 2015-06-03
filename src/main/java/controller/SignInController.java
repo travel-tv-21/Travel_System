@@ -46,13 +46,13 @@ public class SignInController {
             UserTypeEntity userType = authorization.check(new SignInForm(login, pass), null);
             System.out.println(userType);
             if ((userType != null) && (userType.getName().equals(USER_TYPE_ADMIN_NAME))){
-                page = "adminMainPage";
                 model.addAttribute("login", login);
                 List<TourForList> toursForList = new ArrayList<TourForList>();
                 List<TourEntity> dbTours = genericDao.findAll(TourEntity.class);
                 filler.fillList(dbTours, toursForList);
                 model.addAttribute("toursForList", toursForList);
-
+                model.addAttribute("tour", new TourEntity());
+                //return "redirect:/addTour.html";
             } else if ((userType != null) && (userType.getName().equals(USER_TYPE_USER_NAME))) {
                 page = "userMainPage";
                 model.addAttribute("login", login);
@@ -67,6 +67,7 @@ public class SignInController {
                 model.addAttribute("startDateTo", new Date());
                 model.addAttribute("minDaysCount", 0);
                 model.addAttribute("maxDaysCount", 0);
+
             }
         }
 
@@ -102,6 +103,8 @@ public class SignInController {
 
             if (userType.getName().equals(USER_TYPE_ADMIN_NAME)) {
                 page = "adminMainPage";
+                model.addAttribute("tour", new TourEntity());
+                //page ="redirect:/addTour";
             } else if (userType.getName().equals(USER_TYPE_USER_NAME)) {
                 page = "userMainPage";
             }
